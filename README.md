@@ -27,7 +27,7 @@ Follow these steps to get the project running locally.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/tacko.git
+git clone https://github.com/Bharat-012/Tracko.git
 cd tacko
 ```
 
