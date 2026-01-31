@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Bus Tracker</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            </form>
+            <p id="login-error"></p>
+            <div class="credentials-hint">
+                <small>Try: admin/admin123, driver/driver123, student/student123</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app-container" style="display:none;">
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <h2>Bus Tracker</h2>
+                <button id="logout-btn">Logout</button>
+            </div>
+            <div id="user-info"></div>
+
+            <!-- Admin Panel -->
+            <div id="admin-panel" style="display:none;">
+                <h3>Admin Controls</h3>
+
+                <div class="admin-section">
+                    <h4>Add Driver</h4>
+                    <form id="add-driver-form">
+                        <input type="text" id="new-driver-user" placeholder="Username" required>
+                        <input type="password" id="new-driver-pass" placeholder="Password" required>
+                        <button type="submit">Create Driver</button>
+                    </form>
+                </div>
+
+                <div class="admin-section">
+                    <h4>Add Bus & Route</h4>
+                    <form id="add-bus-form">
+                        <input type="text" id="bus-id" placeholder="Bus Number (e.g. KA-01-1234)" required>
+                        <input type="text" id="route-stops" placeholder="Stops (e.g. A, B, College)" required>
+                        <select id="driver-select" required>
+                            <option value="">Select Driver</option>
+                        </select>
+                        <button type="submit">Add Bus</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Driver Dashboard -->
+            <div id="driver-dashboard" style="display:none;" class="driver-controls">
+                <h3>Driver Controls</h3>
+                <div id="tracking-status">Status: Idle</div>
+                <button id="start-tracking-btn" class="btn-green">Start Tracking</button>
+                <button id="stop-tracking-btn" class="btn-red" disabled>Stop Tracking</button>
+            </div>
+
+            <div id="bus-list">
+                <p>Waiting for updates...</p>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- App JS -->
+    <script src="/static/app.js?v=2"></script>
+</body>
+
+</html>
