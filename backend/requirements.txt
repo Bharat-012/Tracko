@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+websockets
+pydantic
+python-jose[cryptography]
+passlib[argon2]
+argon2-cffi
+aiofiles
+python-multipart
